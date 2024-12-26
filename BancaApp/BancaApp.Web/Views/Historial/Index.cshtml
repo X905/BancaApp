@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Transacciones";
+}
+
+<div class="container py-5">
+    <h1 class="text-center mb-4">Transacciones Realizadas</h1>
+    <div class="table-responsive">
+        <table id="transaccionesTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Tipo</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-12-20</td>
+                    <td>Compra en supermercado</td>
+                    <td>Compra</td>
+                    <td>$150.00</td>
+                </tr>
+                <tr>
+                    <td>2024-12-18</td>
+                    <td>Pago de tarjeta</td>
+                    <td>Pago</td>
+                    <td>-$200.00</td>
+                </tr>
+                <tr>
+                    <td>2024-12-15</td>
+                    <td>Pago de restaurante</td>
+                    <td>Compra</td>
+                    <td>$75.00</td>
+                </tr>
+                <tr>
+                    <td>2024-12-10</td>
+                    <td>Pago de tarjeta</td>
+                    <td>Pago</td>
+                    <td>-$500.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#transaccionesTable').DataTable({
+                order: [[0, 'desc']], // Ordenar por fecha de forma descendente
+                dom: 'Bfrtip', // Mostrar botones y filtros
+                buttons: [
+                    'excelHtml5', // Botón para exportar a Excel
+                    'print' // Botón para imprimir
+                ],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json' // Traducción al español
+                }
+            });
+        });
+    </script>
+}

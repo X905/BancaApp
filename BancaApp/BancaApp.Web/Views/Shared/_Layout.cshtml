@@ -3,40 +3,50 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BancaApp.Web</title>
+    <title>@ViewData["Title"] - Prueba Tecnica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BancaApp.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white  mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Banca App</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <footer class="footer text-muted">
-        <div class="container">
-            &copy; 2024 - Banca App - <a href="https://www.linkedin.com/in/angeldanielcastillo/" target="_blank">Angel Castillo</a>
+            <a class="logo d-flex align-items-center me-auto me-xl-0" asp-controller="Home" asp-action="Index">
+                <h1 class="sitename">Banca App</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-controller="EstadoCuenta" asp-action="Index">Estado de Cuenta</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Transacciones</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a asp-action="Index" asp-controller="Historial">Historial</a></li>
+                            <li><a asp-action="Index" asp-controller="Compras">Compras</a></li>
+                            <li><a asp-action="Index" asp-controller="Pagos">Pagos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            @* <a class="btn-getstarted" href="index.html#about">Iniciar Sesion</a> *@
+        </div>
+    </header>
+    
+    <main role="main" class="main">
+        @RenderBody()
+    </main>
+
+    <footer id="footer" class="footer">
+        
+        <div class="container copyright text-center mt-4">
+            <p> &copy; 2024  <strong class="px-1 sitename">Banca App</strong> <span>Angel Castillo</span></p>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

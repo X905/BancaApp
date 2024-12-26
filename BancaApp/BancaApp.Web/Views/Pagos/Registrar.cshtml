@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Registrar Pago";
+}
+
+<!-- Contact Section -->
+<section id="contact" class="contact section light-background">
+    <div class="container " data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row  pt-5 g-4 g-lg-5">
+            <div class="col">
+                <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Registrar pago</h3>
+
+
+                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row gy-4">
+                            <div class="col-12">
+                                <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="">
+                            </div>
+
+                            <div class="col-12">
+                                <input type="number" step="0.01" min="0" class="form-control" name="monto" placeholder="Monto" required="">
+                            </div>
+                            <div class="col-12">
+                                <input type="date" class="form-control" name="fecha" value="@DateTime.Now.ToShortDateString()" required="">
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Se ha registrado correctamente!</div>
+
+                                <button type="submit" class="btn">Registrar pago</button>
+                                <div class="pt-3">
+                                    <a asp-action="Index" class="text-decoration-underline">Regresar</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section><!-- /Contact Section -->
